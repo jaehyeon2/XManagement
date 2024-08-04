@@ -1,4 +1,3 @@
---basic table
 CREATE TABLE if NOT EXISTS x_management.users(
 	user_no INTEGER NOT NULL AUTO_INCREMENT,
 	user_name VARCHAR(100) NOT NULL,
@@ -29,6 +28,7 @@ CREATE TABLE if NOT EXISTS x_management.company(
 	update_date TIMESTAMP NOT NULL,
 	company_temp CHAR(1) NULL,
 	company_delete CHAR(1) NOT NULL,
+	PRIMARY KEY (company_no)
 )ENGINE=InnoDB default CHARSET=utf8;
 
 CREATE TABLE if NOT EXISTS x_management.department(
@@ -40,4 +40,5 @@ CREATE TABLE if NOT EXISTS x_management.department(
 	admin_id VARCHAR(100) NOT NULL,
 	department_temp CHAR(1) NULL,
 	department_delete CHAR(1) NOT NULL,
+	PRIMARY KEY (department_no)
 )ENGINE=InnoDB default CHARSET=utf8;
