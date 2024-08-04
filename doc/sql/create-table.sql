@@ -38,6 +38,8 @@ CREATE TABLE if NOT EXISTS x_management.department(
 	department_parent_no INTEGER NOT NULL,
 	company_no INTEGER NOT NULL,
 	admin_id VARCHAR(100) NOT NULL,
+	insert_date TIMESTAMP NOT NULL,
+	update_date TIMESTAMP NOT NULL,
 	department_temp CHAR(1) NULL,
 	department_delete CHAR(1) NOT NULL,
 	PRIMARY KEY (department_no)
