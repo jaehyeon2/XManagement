@@ -16,8 +16,6 @@ import com.example.project.service.UserService;
 
 @Service
 public class UserServiceImpl extends BasicService implements UserService{
-
-	final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
 	public boolean istUser(UserParam userParam) throws Exception {

@@ -6,10 +6,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.project.beans.model.DepartmentModel;
 import com.example.project.beans.param.DepartmentParam;
+import com.example.project.service.BasicService;
 import com.example.project.service.DepartmentService;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
+public class DepartmentServiceImpl extends BasicService implements DepartmentService{
 
 	@Override
 	public boolean istDepartmentService(DepartmentParam departmentParam) throws Exception {

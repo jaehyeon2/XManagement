@@ -4,10 +4,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.project.beans.model.CompanyModel;
 import com.example.project.beans.param.CompanyParam;
+import com.example.project.service.BasicService;
 import com.example.project.service.CompanyService;
 
 @Service
-public class CompanyServiceImpl implements CompanyService{
+public class CompanyServiceImpl extends BasicService implements CompanyService{
 
 	@Override
 	public boolean istCompany(CompanyParam companyParam) throws Exception {
