@@ -2,6 +2,7 @@ package com.example.project.interceptor;
 
 import java.util.Locale;
 
+import javax.security.auth.login.LoginException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,7 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndViewDefiningException;
 import org.springframework.web.servlet.support.RequestContextUtils;
+
+import com.example.project.beans.model.UserModel;
 
 
 public class AuthInterceptor implements HandlerInterceptor{
@@ -41,25 +45,25 @@ public class AuthInterceptor implements HandlerInterceptor{
 		logger.info("pathInfo >>> " + pathInfo);
 
 		// True to create new session
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 
-//		try {
-//			// Get userInfo from session
-//			UserModel user = (UserModel) session.getAttribute("user");
-//			if(user == null) {
-//				throw new LoginException();
-//			}
-//		} catch (LoginException | NullPointerException e) {
-//			// Clear cookie
+		try {
+			// Get userInfo from session
+			UserModel user = (UserModel) session.getAttribute("user");
+			if(user == null) {
+				throw new LoginException();
+			}
+		} catch (LoginException | NullPointerException e) {
+			// Clear cookie
 //			this.clearCookie(request, response);
-//			// Clear session
-//			session.invalidate();
-//			logger.warn("LoginException:session is clear.");
-//
-//			ModelAndView mv = new ModelAndView("redirect:/login");
-//			ModelAndViewDefiningException mvde = new ModelAndViewDefiningException(mv);
-//			throw mvde;
-//		}
+			// Clear session
+			session.invalidate();
+			logger.warn("LoginException:session is clear.");
+
+			ModelAndView mv = new ModelAndView("redirect:/login");
+			ModelAndViewDefiningException mvde = new ModelAndViewDefiningException(mv);
+			throw mvde;
+		}
 		return true;
 	}
 
