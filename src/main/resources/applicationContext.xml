@@ -19,7 +19,6 @@
 
 	<!-- Include the core spring -->
 	
-	
 	<import resource="classpath:spring/mariadb.xml"/>
 	<import resource="classpath:spring/service.xml"/>
 	<import resource="classpath:spring/dao.xml"/>

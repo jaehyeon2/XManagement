@@ -35,4 +35,8 @@
 		<constructor-arg value="${email.emailer.sender}"/>
 	</bean> -->
 	
+	<bean id="strKey" class="java.lang.String" scope="singletone">
+		<constructor-arg value="${user.str.key}"/>
+	</bean>
+	
 </beans>
