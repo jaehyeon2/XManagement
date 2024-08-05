@@ -2,10 +2,13 @@ package com.example.project.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.example.project.beans.model.DepartmentModel;
 import com.example.project.beans.param.DepartmentParam;
 import com.example.project.service.DepartmentService;
 
+@Service
 public class DepartmentServiceImpl implements DepartmentService{
 
 	@Override

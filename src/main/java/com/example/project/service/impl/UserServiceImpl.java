@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.example.project.beans.model.UserModel;
 import com.example.project.beans.param.UserParam;
@@ -13,6 +14,7 @@ import com.example.project.dao.master.MUserDao;
 import com.example.project.service.BasicService;
 import com.example.project.service.UserService;
 
+@Service
 public class UserServiceImpl extends BasicService implements UserService{
 
 	final Logger logger = LoggerFactory.getLogger(this.getClass());
