@@ -1,6 +1,6 @@
 package com.example.project.beans.param;
 
-public class UserLoginParam {
+public class LoginUserParam {
 	
 	private String userEmail;
 	private String userPwd;
