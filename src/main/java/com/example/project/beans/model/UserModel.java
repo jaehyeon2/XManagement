@@ -9,6 +9,7 @@ public class UserModel implements Serializable{
 	private int userNo;
 	private String userName;
 	private String userEmail;
+	private String userPwd;
 	private String userAuth;
 	private String userPosition;
 	private String userResponsibility;
@@ -36,6 +37,12 @@ public class UserModel implements Serializable{
 	}
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+	public String getUserPwd() {
+		return userPwd;
+	}
+	public void setUserPwd(String userPwd) {
+		this.userPwd = userPwd;
 	}
 	public String getUserAuth() {
 		return userAuth;
