@@ -10,5 +10,4 @@
 	<meta name="keywords" content="engineer, job, programer, java, design">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-	header
 </head>
