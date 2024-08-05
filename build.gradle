@@ -44,6 +44,8 @@ ext {
 
 dependencies {
 	implementation 'org.slf4j:slf4j-api:' + slf4jVersion
+	implementation 'ch.qos.logback:logback-core:' + logbackVersion
+	implementation 'ch.qos.logback:logback-classic:' + logbackVersion
     implementation "org.springframework:spring-core:" + springVersion
 	implementation "org.springframework:spring-beans:" + springVersion
 	implementation "org.springframework:spring-web:" + springVersion
