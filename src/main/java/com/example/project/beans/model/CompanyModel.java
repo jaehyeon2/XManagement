@@ -10,6 +10,7 @@ public class CompanyModel implements Serializable{
 	private String companyName;
 	private String companyAddress;
 	private String companyZip;
+	private String companyCode;
 	
 	public int getCompanyNo() {
 		return companyNo;
@@ -34,5 +35,11 @@ public class CompanyModel implements Serializable{
 	}
 	public void setCompanyZip(String companyZip) {
 		this.companyZip = companyZip;
+	}
+	public String getCompanyCode() {
+		return companyCode;
+	}
+	public void setCompanyCode(String companyCode) {
+		this.companyCode = companyCode;
 	}
 }

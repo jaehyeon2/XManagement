@@ -5,6 +5,7 @@ public class CompanyParam {
 	private String companyName;
 	private String companyAddress;
 	private String companyZip;
+	private String companyCode;
 	
 	public String getCompanyName() {
 		return companyName;
@@ -23,5 +24,11 @@ public class CompanyParam {
 	}
 	public void setCompanyZip(String companyZip) {
 		this.companyZip = companyZip;
+	}
+	public String getCompanyCode() {
+		return companyCode;
+	}
+	public void setCompanyCode(String companyCode) {
+		this.companyCode = companyCode;
 	}
 }
