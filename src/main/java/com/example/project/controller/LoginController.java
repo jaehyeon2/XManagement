@@ -49,6 +49,14 @@ public class LoginController extends BaseController{
 				redirect.addAttribute("loginErrorMessage", "Account Block");
 				redirectUrl = "redirect:/login";
 				break;
+			case BLOCK_PWD:
+				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addAttribute("loginErrorMessage", "Account Block Pwd");
+				redirectUrl = "redirect:/login";
+			case BLOCK_SLEEP:
+				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addAttribute("loginErrorMessage", "Account Block Sleep");
+				redirectUrl = "redirect:/login";
 			case MISMATCH:
 				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
 				redirect.addAttribute("loginErrorMessage", "Password Mismatch");
@@ -62,7 +70,6 @@ public class LoginController extends BaseController{
 			case SUCCESS:
 				session.setAttribute("user", loginUserBean.getUser());
 				break;
-			
 		}
 		
 		return redirectUrl;

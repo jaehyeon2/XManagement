@@ -37,20 +37,33 @@ public class LoginUserServiceImpl extends BaseService implements LoginUserServic
 				loginUserBean.setUser(null);
 				loginUserBean.setLoginResultEnum(LoginResultEnum.NOTEXIST);
 			}
-//			password mismatch - encrypt plan
-			else if (!passwordEncoder.matches(loginUserParam.getUserPwd(), user.getUserPwd())){
-				loginUserBean.setUser(null);
-				loginUserBean.setLoginResultEnum(LoginResultEnum.MISMATCH);
-			}
 //			account block
 			else if (user.getUserStatus().equals(LoginResultEnum.BLOCK.getValue())){
 				loginUserBean.setUser(null);
 				loginUserBean.setLoginResultEnum(LoginResultEnum.BLOCK);
 			}
+//			account pwd block
+			else if (user.getUserStatus().equals(LoginResultEnum.BLOCK_PWD.getValue())){
+				loginUserBean.setUser(null);
+				loginUserBean.setLoginResultEnum(LoginResultEnum.BLOCK_PWD);
+			}
+			else if (user.getUserStatus().equals(LoginResultEnum.BLOCK_SLEEP.getValue())){
+				loginUserBean.setUser(null);
+				loginUserBean.setLoginResultEnum(LoginResultEnum.BLOCK_SLEEP);
+			}
+//			password mismatch - encrypt plan
+			else if (!passwordEncoder.matches(loginUserParam.getUserPwd(), user.getUserPwd())){
+				loginUserBean.setUser(null);
+				loginUserBean.setLoginResultEnum(LoginResultEnum.MISMATCH);
+				loginUserParam.setUserPwdMiscount(user.getUserPwdMismatch()+1);
+				this.udtUserPwdMismatch(loginUserParam);
+			}
 //			login success
 			else{
 				loginUserBean.setUser(user);
 				loginUserBean.setLoginResultEnum(LoginResultEnum.SUCCESS);
+				loginUserParam.setUserPwdMiscount(0);
+				this.udtUserPwdMismatch(loginUserParam);
 			}
 			
 		}catch(Exception e){
@@ -72,6 +85,7 @@ public class LoginUserServiceImpl extends BaseService implements LoginUserServic
 			
 			map.put("userId", loginUserParam.getUserId());
 			map.put("userDomain", loginUserParam.getUserDomain());
+			map.put("userPwdMismatch", loginUserParam.getUserPwdMiscount());
 			
 			intResult = mDbDao.getMapper(MUserDao.class).udtUser(map);
 			
