@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class BasicController {
+public class BaseController {
 	
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
