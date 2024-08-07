@@ -5,7 +5,8 @@ public enum LoginResultEnum {
 	SUCCESS("1"),
 	MISMATCH("3"),
 	NOTEXIST("5"),
-	BLOCK("7");
+	BLOCK("7"),
+	ERROR("9");
 	
 	private String value;
 	

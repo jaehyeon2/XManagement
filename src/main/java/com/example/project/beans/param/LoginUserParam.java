@@ -1,6 +1,6 @@
 package com.example.project.beans.param;
 
-public class LoginUserParam {
+public class LoginUserParam extends BaseParam{
 	
 	private String userEmail;
 	private String userPwd;
