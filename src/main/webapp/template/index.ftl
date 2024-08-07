@@ -2,10 +2,17 @@
 <#import "/spring.ftl" as spring/>
 <@layout.myLayout>
 
-<div class="p-5 mb-4 bg-body-tertiary rounded-3">
 <div class="container-fluid py-5">
-  project
-</div>
+	<form id="loginForm" name="loginForm" action="/login/auth" method="post">
+		<label>이메일</label><input type="text" class="login_input" id="userEmail" name="userEmail" value="${userEmail?if_exists}">
+		</br>
+		<label>비밀번호</label><input type="password" class="login_input" id="userPwd" name="userPwd">
+		</br>
+		<input type="submit" class="login_button" value="로그인">
+	</form>
+	<div class="login_error_message">
+		${loginErrorMessage?if_exists}
+	</div>
 </div>
 
 </@layout.myLayout>

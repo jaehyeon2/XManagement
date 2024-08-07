@@ -40,33 +40,33 @@ public class LoginController extends BaseController{
 		
 		switch (loginUserBean.getLoginResultEnum()) {
 			case NOTEXIST:
-				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
-				redirect.addAttribute("loginErrorMessage", "Account Not Exist");
+				redirect.addFlashAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addFlashAttribute("loginErrorMessage", "Account Not Exist");
 				redirectUrl = "redirect:/login";
 				break;
 			case BLOCK:
-				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
-				redirect.addAttribute("loginErrorMessage", "Account Block");
+				redirect.addFlashAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addFlashAttribute("loginErrorMessage", "Account Block");
 				redirectUrl = "redirect:/login";
 				break;
 			case BLOCK_PWD:
-				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
-				redirect.addAttribute("loginErrorMessage", "Account Block Pwd");
+				redirect.addFlashAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addFlashAttribute("loginErrorMessage", "Account Block Pwd");
 				redirectUrl = "redirect:/login";
 				break;
 			case BLOCK_SLEEP:
-				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
-				redirect.addAttribute("loginErrorMessage", "Account Block Sleep");
+				redirect.addFlashAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addFlashAttribute("loginErrorMessage", "Account Block Sleep");
 				redirectUrl = "redirect:/login";
 				break;
 			case MISMATCH:
-				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
-				redirect.addAttribute("loginErrorMessage", "Password Mismatch");
+				redirect.addFlashAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addFlashAttribute("loginErrorMessage", "Password Mismatch");
 				redirectUrl = "redirect:/login";
 				break;
 			case ERROR:
-				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
-				redirect.addAttribute("loginErrorMessage", "Login Error");
+				redirect.addFlashAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addFlashAttribute("loginErrorMessage", "Login Error");
 				redirectUrl = "redirect:/login";
 				break;
 			case SUCCESS:
