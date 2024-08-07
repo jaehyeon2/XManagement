@@ -7,7 +7,7 @@ import com.example.project.beans.MasterBean;
 import com.example.project.beans.param.CompanyParam;
 
 @Service
-public class MasterService extends BasicService{
+public class MasterService extends BaseService{
 	
 	@Autowired
 	private MasterBean masterBean;

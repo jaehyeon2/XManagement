@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import com.example.project.beans.model.UserModel;
 import com.example.project.beans.param.UserParam;
 import com.example.project.dao.master.MUserDao;
-import com.example.project.service.BasicService;
+import com.example.project.service.BaseService;
 import com.example.project.service.UserService;
 
 @Service
-public class UserServiceImpl extends BasicService implements UserService{
+public class UserServiceImpl extends BaseService implements UserService{
 	
 	@Override
 	public boolean istUser(UserParam userParam) throws Exception {

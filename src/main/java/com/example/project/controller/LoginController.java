@@ -17,7 +17,7 @@ import com.example.project.service.LoginUserService;
 
 @Controller
 @RequestMapping("/login")
-public class LoginController extends BasicController{
+public class LoginController extends BaseController{
 	
 	@Autowired
 	private LoginUserService loginUserService;
@@ -54,9 +54,15 @@ public class LoginController extends BasicController{
 				redirect.addAttribute("loginErrorMessage", "Password Mismatch");
 				redirectUrl = "redirect:/login";
 				break;
+			case ERROR:
+				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
+				redirect.addAttribute("loginErrorMessage", "Login Error");
+				redirectUrl = "redirect:/login";
+				break;
 			case SUCCESS:
 				session.setAttribute("user", loginUserBean.getUser());
 				break;
+			
 		}
 		
 		return redirectUrl;
