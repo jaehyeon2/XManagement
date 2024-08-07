@@ -53,10 +53,12 @@ public class LoginController extends BaseController{
 				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
 				redirect.addAttribute("loginErrorMessage", "Account Block Pwd");
 				redirectUrl = "redirect:/login";
+				break;
 			case BLOCK_SLEEP:
 				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
 				redirect.addAttribute("loginErrorMessage", "Account Block Sleep");
 				redirectUrl = "redirect:/login";
+				break;
 			case MISMATCH:
 				redirect.addAttribute("userEmail", loginUserParam.getUserEmail());
 				redirect.addAttribute("loginErrorMessage", "Password Mismatch");
