@@ -1,6 +1,7 @@
 package com.example.project.beans.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class UserModel implements Serializable{
 	
@@ -14,10 +15,14 @@ public class UserModel implements Serializable{
 	private String userPosition;
 	private String userResponsibility;
 	private String userClass;
+	private String userStatus;
+	private int userPwdMismatch;
+	private Date userConnectTime;
 	private String userId;
 	private String userDomain;
 	private int companyNo;
 	private int departmentNo;
+	private Date userInsertTime;
 	private String adminId;
 	
 	public int getUserNo() {
@@ -68,6 +73,24 @@ public class UserModel implements Serializable{
 	public void setUserClass(String userClass) {
 		this.userClass = userClass;
 	}
+	public String getUserStatus() {
+		return userStatus;
+	}
+	public void setUserStatus(String userStatus) {
+		this.userStatus = userStatus;
+	}
+	public int getUserPwdMismatch() {
+		return userPwdMismatch;
+	}
+	public void setUserPwdMismatch(int userPwdMismatch) {
+		this.userPwdMismatch = userPwdMismatch;
+	}
+	public Date getUserConnectTime() {
+		return userConnectTime;
+	}
+	public void setUserConnectTime(Date userConnectTime) {
+		this.userConnectTime = userConnectTime;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -91,6 +114,12 @@ public class UserModel implements Serializable{
 	}
 	public void setDepartmentNo(int departmentNo) {
 		this.departmentNo = departmentNo;
+	}
+	public Date getUserInsertTime() {
+		return userInsertTime;
+	}
+	public void setUserInsertTime(Date userInsertTime) {
+		this.userInsertTime = userInsertTime;
 	}
 	public String getAdminId() {
 		return adminId;

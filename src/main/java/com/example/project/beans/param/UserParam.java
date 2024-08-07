@@ -1,13 +1,19 @@
 package com.example.project.beans.param;
 
+import java.util.Date;
+
 public class UserParam {
 
 	private String userName;
 	private String userEmail;
+	private String userPwd;
 	private String userAuth;
 	private String userPosition;
 	private String userResponsibility;
 	private String userClass;
+	private String userStatus;
+	private int userPwdMismatch;
+	private Date userConnectTime;
 	private String userId;
 	private String userDomain;
 	private int companyNo;
@@ -25,6 +31,12 @@ public class UserParam {
 	}
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+	public String getUserPwd() {
+		return userPwd;
+	}
+	public void setUserPwd(String userPwd) {
+		this.userPwd = userPwd;
 	}
 	public String getUserAuth() {
 		return userAuth;
@@ -49,6 +61,24 @@ public class UserParam {
 	}
 	public void setUserClass(String userClass) {
 		this.userClass = userClass;
+	}
+	public String getUserStatus() {
+		return userStatus;
+	}
+	public void setUserStatus(String userStatus) {
+		this.userStatus = userStatus;
+	}
+	public int getUserPwdMismatch() {
+		return userPwdMismatch;
+	}
+	public void setUserPwdMismatch(int userPwdMismatch) {
+		this.userPwdMismatch = userPwdMismatch;
+	}
+	public Date getUserConnectTime() {
+		return userConnectTime;
+	}
+	public void setUserConnectTime(Date userConnectTime) {
+		this.userConnectTime = userConnectTime;
 	}
 	public String getUserId() {
 		return userId;

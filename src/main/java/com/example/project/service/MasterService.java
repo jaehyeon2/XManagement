@@ -16,18 +16,17 @@ public class MasterService extends BasicService{
 	private CompanyService companyService;
 	
 	public MasterService() throws Exception{
-		
 	}
 	
 	public void start() throws Exception{
-		this.setCompany();
+		this.setMCompany();
 	}
 	
 	public void stop() throws Exception{
 		logger.info("stop");
 	}
 	
-	private void setCompany() throws Exception{
+	private void setMCompany() throws Exception{
 		CompanyParam companyParam = new CompanyParam();
 		companyParam.setCompanyCode("company-001");
 		

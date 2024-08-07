@@ -14,4 +14,6 @@ public interface SUserDao {
 	public UserModel sltUser(Map<String, Object> map) throws SQLException;
 	public List<UserModel> sltUserList(Map<String, Object> map) throws SQLException;
 	
+	public UserModel sltLoginUser(Map<String, Object> map) throws SQLException;
+	
 }
