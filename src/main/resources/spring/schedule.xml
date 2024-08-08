@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <bean id="schedulingJob" class="com.example.project.scheduling.SchedulingJob" />
+
+    <task:scheduler id="scheduler" pool-size="3"/>
+    <task:scheduled-tasks scheduler="scheduler">
+        <task:scheduled ref="schedulingJob" method="executeJob1" cron="* * * * * ?"/>
+    </task:scheduled-tasks>
+    
+    <task:scheduler id="scheduler2" pool-size="5"/>
+    <task:scheduled-tasks scheduler="scheduler2">
+        <task:scheduled ref="schedulingJob" method="executeJob2" cron="* * * * * ?"/>
+    </task:scheduled-tasks>
+
+</beans>-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:quartz="http://www.springframework.org/schema/quartz"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/quartz http://www.springframework.org/schema/task/spring-quartz.xsd">
+
+    <bean id="schedulingJob" class="com.example.project.scheduling.SchedulingJob" />
+
+    <bean id="job1Detail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="schedulingJob"/>
+        <property name="targetMethod" value="executeJob1"/>
+    </bean>
+
+    <bean id="job2Detail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="schedulingJob"/>
+        <property name="targetMethod" value="executeJob2"/>
+    </bean>
+
+    <bean id="trigger1" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="job1Detail"/>
+        <property name="cronExpression" value="* * * * * ?"/>
+    </bean>
+
+    <bean id="trigger2" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="job2Detail"/>
+        <property name="cronExpression" value="* * * * * ?"/>
+    </bean>
+
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="trigger1"/>
+                <ref bean="trigger2"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
