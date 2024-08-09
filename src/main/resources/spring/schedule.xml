@@ -15,12 +15,12 @@
 
     <task:scheduler id="scheduler" pool-size="3"/>
     <task:scheduled-tasks scheduler="scheduler">
-        <task:scheduled ref="schedulingJob" method="executeJob1" cron="* * * * * ?"/>
+        <task:scheduled ref="schedulingJob" method="executeJob1" cron="0 0 0 * * ?"/>
     </task:scheduled-tasks>
     
     <task:scheduler id="scheduler2" pool-size="5"/>
     <task:scheduled-tasks scheduler="scheduler2">
-        <task:scheduled ref="schedulingJob" method="executeJob2" cron="* * * * * ?"/>
+        <task:scheduled ref="schedulingJob" method="executeJob2" cron="0 0 0 * * ?"/>
     </task:scheduled-tasks>
 
 </beans>
