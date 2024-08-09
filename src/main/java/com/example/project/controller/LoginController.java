@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,12 @@ import com.example.project.service.LoginUserService;
 @Controller
 @RequestMapping("/login")
 public class LoginController extends BaseController{
+	
+	@Autowired
+	private String strKey;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
 	private LoginUserService loginUserService;
@@ -37,7 +44,9 @@ public class LoginController extends BaseController{
 		LoginUserBean loginUserBean = loginUserService.validateLoginUser(loginUserParam);
 		
 		String redirectUrl = "redirect:/dashboard";
-		
+		String pwd = loginUserParam.getUserPwd();
+		String encryptPwd = passwordEncoder.encode(pwd);
+		logger.info("encryptPwd = {}", encryptPwd);
 		switch (loginUserBean.getLoginResultEnum()) {
 			case NOTEXIST:
 				redirect.addFlashAttribute("userEmail", loginUserParam.getUserEmail());
