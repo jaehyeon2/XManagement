@@ -9,4 +9,9 @@
   	<li class="navi_li">li3</li>
   <ul>
 </div>
+<#if model??>
+<div class="user_info">
+	<span class="user_name">${model.user.userName}</span>
+</div>
+</#if>
 </nav>

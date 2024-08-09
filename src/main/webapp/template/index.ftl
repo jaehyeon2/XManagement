@@ -2,7 +2,7 @@
 <#import "/spring.ftl" as spring/>
 <@layout.myLayout>
 
-<div class="container-fluid py-5">
+<div class="main_container">
 	<form id="loginForm" name="loginForm" action="/login/auth" method="post">
 		<label>이메일</label><input type="text" class="login_input" id="userEmail" name="userEmail" value="${userEmail?if_exists}">
 		</br>
