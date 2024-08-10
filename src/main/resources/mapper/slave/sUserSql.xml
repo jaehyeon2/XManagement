@@ -36,6 +36,9 @@
 			user_position,
 			user_responsibility,
 			user_class,
+			user_status,
+			user_pwd_mismatch,
+			user_connect_time,
 			user_id,
 			user_domain,
 			company_no,
@@ -46,8 +49,9 @@
 		FROM
 			users
 		WHERE
-			user_email = HEX(AES_ENCRYPT(#{userEmail}, #{strKey})) AND
-			user_delete='0'
+			user_id = #{userId} AND
+			user_domain = #{userDomain} AND
+			user_delete = '0'
 	</select>
 	
 </mapper>

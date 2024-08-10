@@ -24,7 +24,7 @@ public class DashboardController extends BaseController{
 		
 		map.addAttribute("model", viewModel);
 		
-		return "/dashboard/index";
+		return "dashboard/index";
 	}
 
 }

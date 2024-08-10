@@ -33,9 +33,9 @@ public class LoginUserServiceImpl extends BaseService implements LoginUserServic
 		try{
 			Map<String, Object> map = new HashMap<>();
 			
-			map.put("userEmail", loginUserParam.getUserEmail());
+			map.put("userId", loginUserParam.getUserId());
+			map.put("userDomain", loginUserParam.getUserDomain());
 			map.put("strKey", strKey);
-			logger.info("userEmail = {}, strKey = {}", loginUserParam.getUserEmail(), strKey);
 			
 			UserModel user = sDbDao.getMapper(SUserDao.class).sltLoginUser(map);
 			

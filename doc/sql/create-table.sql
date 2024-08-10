@@ -3,6 +3,7 @@ CREATE TABLE if NOT EXISTS x_management.users(
 	user_name VARCHAR(100) NOT NULL,
 	user_email VARCHAR(100) NOT NULL,
 	user_phone VARCHAR(100) NOT NULL,
+	user_pwd VARCHAR(100) NOT NULL,
 	user_auth VARCHAR(10) NOT NULL,
 	user_position VARCHAR(10) NOT NULL,
 	user_responsibility VARCHAR(50) NOT NULL,
