@@ -41,12 +41,10 @@ public class LoginController extends BaseController{
 	@PostMapping(value={"/auth"})
 	public String loginAuth(LoginUserParam loginUserParam, HttpServletRequest request, HttpServletResponse response, HttpSession session, RedirectAttributes redirect) throws Exception{
 		
+		String redirectUrl = "redirect:/dashboard";
+		
 		LoginUserBean loginUserBean = loginUserService.validateLoginUser(loginUserParam);
 		
-		String redirectUrl = "redirect:/dashboard";
-		String pwd = loginUserParam.getUserPwd();
-		String encryptPwd = passwordEncoder.encode(pwd);
-		logger.info("encryptPwd = {}", encryptPwd);
 		switch (loginUserBean.getLoginResultEnum()) {
 			case NOTEXIST:
 				redirect.addFlashAttribute("userEmail", loginUserParam.getUserEmail());

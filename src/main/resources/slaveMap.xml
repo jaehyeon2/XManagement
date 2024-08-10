@@ -15,7 +15,7 @@
 
 	<mappers>
 		<!-- <mapper resource="mapper/sLoginSql.xml" /> -->
-		<mapper resource="mapper/sUserSql.xml" />
+		<mapper resource="mapper/slave/sUserSql.xml" />
 	</mappers>
 
 </configuration>

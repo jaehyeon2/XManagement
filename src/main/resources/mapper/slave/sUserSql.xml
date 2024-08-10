@@ -6,11 +6,9 @@
 
 	<select id="sltUser" resultType="com.example.project.beans.model.UserModel">
 		SELECT
-			HEX(AES_ENCRYPT(user_name,#{strKey})) as user_name,
-			HEX(AES_ENCRYPT(user_email,#{strKey})) as user_email,
-			HEX(AES_ENCRYPT(user_phone,#{strKey})) as user_phone,
-			user_pwd,
-			user_phone,
+			(AES_DECRYPT(UNHEX(user_name), #{strKey})) AS user_name,
+    		(AES_DECRYPT(UNHEX(user_email), #{strKey})) AS user_email,
+   			(AES_DECRYPT(UNHEX(user_phone), #{strKey})) AS user_phone,
 			user_auth,
 			user_position,
 			user_responsibility,
@@ -28,5 +26,28 @@
 			user_delete='0'
 	</select>
 
+	<select id="sltLoginUser" resultType="com.example.project.beans.model.UserModel">
+		SELECT
+			(AES_DECRYPT(UNHEX(user_name), #{strKey})) AS user_name,
+    		(AES_DECRYPT(UNHEX(user_email), #{strKey})) AS user_email,
+   			(AES_DECRYPT(UNHEX(user_phone), #{strKey})) AS user_phone,
+			user_pwd,
+			user_auth,
+			user_position,
+			user_responsibility,
+			user_class,
+			user_id,
+			user_domain,
+			company_no,
+			department_no,
+			admin_id,
+			insert_date,
+			update_date
+		FROM
+			users
+		WHERE
+			user_email = HEX(AES_ENCRYPT(#{userEmail}, #{strKey})) AND
+			user_delete='0'
+	</select>
 	
 </mapper>

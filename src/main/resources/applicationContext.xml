@@ -19,11 +19,11 @@
 	<bean id="schedulingJob" class="com.example.project.scheduling.SchedulingJob" />
 	<!-- Include the core spring -->
 	
-	<import resource="classpath:spring/mariadb.xml"/>
 	<import resource="classpath:spring/service.xml"/>
-	<import resource="classpath:spring/dao.xml"/>
 	<import resource="classpath:spring/schedule.xml"/>
 	
+	<import resource="classpath:spring/mysql.xml"/>
+	<import resource="classpath:spring/dao.xml"/>
 	<!-- Users -->
 	
 

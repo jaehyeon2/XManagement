@@ -20,7 +20,11 @@ import com.example.project.service.LoginUserService;
 public class LoginUserServiceImpl extends BaseService implements LoginUserService{
 	
 	@Autowired
-	PasswordEncoder passwordEncoder;
+	private String strKey;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	
 	@Override
 	public LoginUserBean validateLoginUser(LoginUserParam loginUserParam) throws Exception {
@@ -30,6 +34,8 @@ public class LoginUserServiceImpl extends BaseService implements LoginUserServic
 			Map<String, Object> map = new HashMap<>();
 			
 			map.put("userEmail", loginUserParam.getUserEmail());
+			map.put("strKey", strKey);
+			logger.info("userEmail = {}, strKey = {}", loginUserParam.getUserEmail(), strKey);
 			
 			UserModel user = sDbDao.getMapper(SUserDao.class).sltLoginUser(map);
 			
