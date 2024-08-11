@@ -29,6 +29,7 @@ CREATE TABLE if NOT EXISTS x_management.company(
 	company_address VARCHAR(1000) NOT NULL,
 	company_zip VARCHAR(10) NOT NULL,
 	company_code VARCHAR(100) NOT NULL,
+	company_parent_no INTEGER NOT NULL,
 	insert_date TIMESTAMP NOT NULL,
 	update_date TIMESTAMP NOT NULL,
 	company_temp CHAR(1) NULL,

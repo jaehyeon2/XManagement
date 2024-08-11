@@ -2,12 +2,19 @@ package com.example.project.beans.param;
 
 public class DepartmentParam {
 	
+	private int departmentNo;
 	private String departmentName;
 	private String departmentCode;
 	private int departmentParentNo;
 	private int companyNo;
 	private String adminId;
 	
+	public int getDepartmentNo() {
+		return departmentNo;
+	}
+	public void setDepartmentNo(int departmentNo) {
+		this.departmentNo = departmentNo;
+	}
 	public String getDepartmentName() {
 		return departmentName;
 	}

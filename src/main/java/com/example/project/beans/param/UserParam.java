@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UserParam {
 
+	private int userNo;
 	private String userName;
 	private String userEmail;
 	private String userPwd;
@@ -20,6 +21,12 @@ public class UserParam {
 	private int departmentNo;
 	private String adminId;
 	
+	public int getUserNo() {
+		return userNo;
+	}
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
 	public String getUserName() {
 		return userName;
 	}

@@ -2,12 +2,19 @@ package com.example.project.beans.param;
 
 public class LoginUserParam extends BaseParam{
 	
+	private int userNo;
 	private String userEmail;
 	private String userPwd;
 	private int userPwdMiscount;
 	private String userId;
 	private String userDomain;
 	
+	public int getUserNo() {
+		return userNo;
+	}
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
 	public String getUserEmail() {
 		return userEmail;
 	}
