@@ -1,5 +1,7 @@
 package com.example.project.service;
 
+import java.util.List;
+
 import com.example.project.beans.model.CompanyModel;
 import com.example.project.beans.param.CompanyParam;
 
@@ -12,5 +14,6 @@ public interface CompanyService {
 	
 //	Slave
 	public CompanyModel sltCompany(CompanyParam companyParam) throws Exception;
+	public List<CompanyModel> sltLowerCompanyList(CompanyParam companyParam) throws Exception;
 	
 }

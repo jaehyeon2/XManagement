@@ -15,6 +15,7 @@
 
 	<mappers>
 		<mapper resource="mapper/master/mUserSql.xml" />
+		<mapper resource="mapper/master/mCompanySql.xml" />
 	</mappers>
 
 </configuration>
