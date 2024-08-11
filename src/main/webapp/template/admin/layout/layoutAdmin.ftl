@@ -1,14 +1,14 @@
 <#macro myLayout title="FreeMarker index">
 <!DOCTYPE html>
 
-<#include "headerUser.ftl"/>
+<#include "headerAdmin.ftl"/>
 <body>
 
-<#include "naviUser.ftl"/>
+<#include "naviAdmin.ftl"/>
 
 <#nested/>
 
-<#include "footerUser.ftl"/>
+<#include "footerAdmin.ftl"/>
 
 </body>
 </html>
