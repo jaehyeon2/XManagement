@@ -16,7 +16,7 @@ public class IndexController {
 	public String index() throws Exception {
     	
     	
-		return "index";
+		return "user/index";
 	}
 
 }

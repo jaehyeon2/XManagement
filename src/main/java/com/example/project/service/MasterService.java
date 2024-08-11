@@ -19,7 +19,7 @@ public class MasterService extends BaseService{
 	}
 	
 	public void start() throws Exception{
-		this.setMCompany();
+//		this.setMCompany();
 	}
 	
 	public void stop() throws Exception{
