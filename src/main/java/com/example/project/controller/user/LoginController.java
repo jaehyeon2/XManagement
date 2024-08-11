@@ -1,4 +1,4 @@
-package com.example.project.controller;
+package com.example.project.controller.user;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.project.beans.LoginUserBean;
 import com.example.project.beans.param.LoginUserParam;
+import com.example.project.controller.BaseController;
 import com.example.project.service.LoginUserService;
 
 import jakarta.validation.Valid;
@@ -27,18 +28,12 @@ import jakarta.validation.Valid;
 public class LoginController extends BaseController{
 	
 	@Autowired
-	private String strKey;
-	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
-	@Autowired
 	private LoginUserService loginUserService;
 	
 	@GetMapping(value={"/", "", "/index"})
 	public String loginIndex(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
-		return "index";
+		return "user/index";
 		
 	}
 	
@@ -56,8 +51,6 @@ public class LoginController extends BaseController{
 			
 			return "redirect:/login";
 		}
-		
-		logger.info("userId = {}, userDomain = {}", loginUserParam.getUserId(), loginUserParam.getUserDomain());
 		
 		LoginUserBean loginUserBean = loginUserService.validateLoginUser(loginUserParam);
 		

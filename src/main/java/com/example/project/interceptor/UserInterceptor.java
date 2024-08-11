@@ -17,7 +17,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import com.example.project.beans.model.UserModel;
 
 
-public class AuthInterceptor implements HandlerInterceptor{
+public class UserInterceptor implements HandlerInterceptor{
 
 	final Logger logger = LoggerFactory.getLogger(this.getClass());
 

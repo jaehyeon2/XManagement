@@ -1,9 +1,10 @@
-package com.example.project.controller;
+package com.example.project.controller.user;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import com.example.project.beans.param.LoginUserParam;
+import com.example.project.controller.BaseValidator;
 
 
 public class LoginUserValidator extends BaseValidator implements Validator{

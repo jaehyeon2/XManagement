@@ -1,4 +1,4 @@
-<#import "/layout/layout.ftl" as layout>
+<#import "/user/layout/layoutUser.ftl" as layout>
 <#import "/spring.ftl" as spring/>
 <@layout.myLayout>
 

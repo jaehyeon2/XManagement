@@ -1,4 +1,4 @@
-package com.example.project.controller;
+package com.example.project.controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.project.beans.model.UserModel;
 import com.example.project.beans.model.ViewModel;
+import com.example.project.controller.BaseController;
 
 @Controller
 @RequestMapping("/dashboard")
@@ -24,7 +25,7 @@ public class DashboardController extends BaseController{
 		
 		map.addAttribute("model", viewModel);
 		
-		return "dashboard/index";
+		return "user/dashboard/index";
 	}
 
 }
