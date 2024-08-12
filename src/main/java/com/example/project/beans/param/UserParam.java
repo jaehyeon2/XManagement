@@ -21,6 +21,10 @@ public class UserParam {
 	private int departmentNo;
 	private String adminId;
 	
+	private String userKeyword;
+	private int pageNum = 1;
+	private int limitNum = 10;
+	
 	public int getUserNo() {
 		return userNo;
 	}
@@ -116,5 +120,23 @@ public class UserParam {
 	}
 	public void setAdminId(String adminId) {
 		this.adminId = adminId;
+	}
+	public String getUserKeyword() {
+		return userKeyword;
+	}
+	public void setUserKeyword(String userKeyword) {
+		this.userKeyword = userKeyword;
+	}
+	public int getPageNum() {
+		return pageNum;
+	}
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+	public int getLimitNum() {
+		return limitNum;
+	}
+	public void setLimitNum(int limitNum) {
+		this.limitNum = limitNum;
 	}
 }

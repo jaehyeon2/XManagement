@@ -12,7 +12,7 @@
 </div>
 <#if model??>
 <div class="user_info">
-	<span class="user_name">${model.user.userName?if_exists}</span>
+	<span class="user_name">${model.sessionUser.userName?if_exists}</span>
 </div>
 </#if>
 </nav>

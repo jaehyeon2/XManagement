@@ -15,5 +15,6 @@ public interface UserService {
 //	Slave
 	public UserModel sltUser(UserParam userParam) throws Exception;
 	public List<UserModel> sltUserList(UserParam userParam) throws Exception;
+	public int sltUserCount(UserParam userParam) throws Exception;
 	
 }

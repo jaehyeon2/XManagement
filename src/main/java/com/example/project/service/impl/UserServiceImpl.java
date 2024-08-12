@@ -4,16 +4,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.project.beans.model.UserModel;
 import com.example.project.beans.param.UserParam;
 import com.example.project.dao.master.MUserDao;
+import com.example.project.dao.slave.SUserDao;
 import com.example.project.service.BaseService;
 import com.example.project.service.UserService;
 
 @Service
 public class UserServiceImpl extends BaseService implements UserService{
+	
+	@Autowired
+	private String strKey;
 	
 	@Override
 	public boolean istUser(UserParam userParam) throws Exception {
@@ -104,13 +109,66 @@ public class UserServiceImpl extends BaseService implements UserService{
 
 	@Override
 	public UserModel sltUser(UserParam userParam) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		UserModel user = null;
+		
+		try{
+			Map<String, Object> map = new HashMap<>();
+			map.put("userId", userParam.getUserId());
+			map.put("userDomain", userParam.getUserDomain());
+			
+			user = sDbDao.getMapper(SUserDao.class).sltUser(map);
+			if (user == null){
+				logger.error("UserServiceImpl::sltUser::Error = user is not exist. userId = {}", userParam.getUserId());
+				return null;
+			}
+		}catch (Exception e) {
+			logger.error("UserServiceImpl::sltUSer::Error = {}", e.getMessage());
+			return null;
+		}
+		return user;
 	}
 
 	@Override
 	public List<UserModel> sltUserList(UserParam userParam) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<UserModel> userList = null;
+		
+		try{
+			Map<String, Object> map = new HashMap<>();
+			map.put("userKeyword", userParam.getUserKeyword());
+			map.put("limitNum", userParam.getLimitNum());
+			map.put("startNum", (userParam.getPageNum()-1)*userParam.getLimitNum());
+			map.put("strKey", strKey);
+			
+			userList = sDbDao.getMapper(SUserDao.class).sltUserList(map);
+			if (userList == null){
+				logger.error("UserServiceImpl::sltUserList::Error = userList is not exist. userKeyword = {}", userParam.getUserKeyword());
+				return null;
+			}
+		}catch(Exception e){
+			logger.error("UserServiceImpl::sltUserList::Error = {}", e.getMessage());
+			return null;
+		}
+		return userList;
+	}
+	
+	@Override
+	public int sltUserCount(UserParam userParam) throws Exception {
+		int userCount = 0;
+		
+		try{
+			Map<String, Object> map = new HashMap<>();
+			map.put("userKeyword", userParam.getUserKeyword());
+			
+			userCount = sDbDao.getMapper(SUserDao.class).sltUserCount(map);
+			if (userCount == 0){
+				logger.error("UserServiceImpl::sltUserList::Error = userList is not exist. userKeyword = {}", userParam.getUserKeyword());
+				return 0;
+			}
+		}catch(Exception e){
+			logger.error("UserServiceImpl::sltUserList::Error = {}", e.getMessage());
+			return 0;
+		}
+		
+		return userCount;
 	}
 }
