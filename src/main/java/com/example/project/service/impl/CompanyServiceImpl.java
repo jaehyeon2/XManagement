@@ -26,6 +26,7 @@ public class CompanyServiceImpl extends BaseService implements CompanyService{
 			map.put("companyZip", companyParam.getCompanyZip());
 			map.put("companyCode", companyParam.getCompanyCode());
 			map.put("companyParentNo", companyParam.getCompanyNo());
+			map.put("adminId", companyParam.getAdminId());
 			
 			intResult = mDbDao.getMapper(MCompanyDao.class).istCompany(map);
 			
@@ -77,14 +78,17 @@ public class CompanyServiceImpl extends BaseService implements CompanyService{
 	}
 	
 	@Override
-	 public List<CompanyModel> sltLowerCompanyList(CompanyParam companyParam) throws Exception {
+	 public List<CompanyModel> sltCompanyList(CompanyParam companyParam) throws Exception {
 		List<CompanyModel> companyList = null;
 		
 		try{
 			Map<String, Object> map = new HashMap<>();
 			map.put("companyParentNo", companyParam.getCompanyNo());
 			
-			sDbDao.getMapper(SCompanyDao.class).sltCompanyList(map);
+			companyList = sDbDao.getMapper(SCompanyDao.class).sltCompanyList(map);
+			if (companyList == null){
+				logger.info("CompanyServiceImpl::sltCompanyList::Info = companyList is null");
+			}
 			
 		}catch (Exception e) {
 			logger.error("CompanyServiceImpl::sltCompanyList::Error = {}", e.getMessage());
