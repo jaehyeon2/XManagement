@@ -3,7 +3,11 @@
 <@layout.myLayout>
 
 <div class="main_container">
-	company index
+	<#if model??>
+	<#list model.companyList?if_exists as company>
+		<option value="${company.companyNo}">${company.companyName}</option>
+	</#list>
+	</#if>
 </div>
 
 </@layout.myLayout>

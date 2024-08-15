@@ -4,15 +4,15 @@
 <nav>
 <div class="container-fluid">
 	admin mode
-	<ul class="navi_ul">
-		<li class="navi_li">li1</li>
-		<li class="navi_li">li2</li>
-		<li class="navi_li">li3</li>
+	<ul class="admin_navi_list">
+		<li class="admin_navi"><a href="/admin/dashboard">대시보드</a></li>
+		<li class="admin_navi"><a href="/admin/company">회사 관리</a></li>
+		<li class="admin_navi"><a href="">다른 거</a></li>
 	<ul>
 </div>
 <#if model??>
 <div class="user_info">
-	<span class="user_name">${model.sessionUser.userName?if_exists}</span>
+	<#-- <span class="user_name">${model.sessionUser.userName?if_exists}</span> -->
 </div>
 </#if>
 </nav>
