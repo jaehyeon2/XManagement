@@ -1,13 +1,12 @@
 package com.example.project.beans.param;
 
-public class DepartmentParam {
+public class DepartmentParam extends BaseParam{
 	
 	private int departmentNo;
 	private String departmentName;
 	private String departmentCode;
 	private int departmentParentNo;
 	private int companyNo;
-	private String adminId;
 	
 	public int getDepartmentNo() {
 		return departmentNo;
@@ -38,11 +37,5 @@ public class DepartmentParam {
 	}
 	public void setCompanyNo(int companyNo) {
 		this.companyNo = companyNo;
-	}
-	public String getAdminId() {
-		return adminId;
-	}
-	public void setAdminId(String adminId) {
-		this.adminId = adminId;
 	}
 }

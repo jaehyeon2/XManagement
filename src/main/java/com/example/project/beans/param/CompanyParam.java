@@ -1,6 +1,6 @@
 package com.example.project.beans.param;
 
-public class CompanyParam {
+public class CompanyParam extends BaseParam{
 
 	private int companyNo;
 	private String companyName;

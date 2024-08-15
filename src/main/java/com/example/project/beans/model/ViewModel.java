@@ -9,6 +9,10 @@ public class ViewModel {
 	private UserModel user;
 	private List<UserModel> userList;
 	private int userCount;
+	
+	private CompanyModel company;
+	private List<CompanyModel> companyList;
+	
 	private DepartmentModel department;
 	private List<DepartmentModel> departmentList;
 	
@@ -38,6 +42,18 @@ public class ViewModel {
 	}
 	public void setUserCount(int userCount) {
 		this.userCount = userCount;
+	}
+	public CompanyModel getCompany() {
+		return company;
+	}
+	public void setCompany(CompanyModel company) {
+		this.company = company;
+	}
+	public List<CompanyModel> getCompanyList() {
+		return companyList;
+	}
+	public void setCompanyList(List<CompanyModel> companyList) {
+		this.companyList = companyList;
 	}
 	public DepartmentModel getDepartment() {
 		return department;
