@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.project.dao.master.MUserDao">
+
+	<insert id="istUser" parameterType="map">
+		INSERT INTO users(
+			user_name,
+			user_email,
+			user_phone,
+			user_pwd,
+			user_auth,
+			user_position,
+			user_responsibility,
+			user_class,
+			user_status,
+			user_id,
+			user_domain,
+			company_no,
+			department_no,
+			admin_id,
+			insert_date,
+			update_date,
+			user_temp,
+			user_delete
+		)
+		values(
+			HEX(AES_ENCRYPT(#{userName}, #{strKey})),
+			HEX(AES_ENCRYPT(#{userEmail}, #{strKey})),
+			HEX(AES_ENCRYPT(#{userPhone}, #{strKey})),
+			#{userPwd},
+			'0',
+			#{userPosition},
+			#{userResponsibility},
+			#{userClass},
+			'1',
+			#{userId},
+			#{userDomain},
+			#{companyNo},
+			#{deparymentNo},
+			#{adminId},
+			now(),
+			now(),
+			'0',
+			'0'
+		)
+	</insert>
+	
+	<update id="udtUser" parameterType="map">
+		UPDATE
+			users
+		SET
+		<if test="userName != null and userName != ''">
+			user_name = #{userName} AND
+		</if>
+		<if test="userPhone != null and userPhone != ''">
+			user_phone = #{userPhone} AND
+		</if>
+		<if test="userAuth != null and userAuth != ''">
+			user_auth = #{userAuth} AND
+		</if>
+		<if test="userPosition != null and userPosition != ''">
+			user_position = #{userPosition} AND
+		</if>
+		<if test="userResponsibility != null and userResponsibility != ''">
+			user_responsibility = #{userResponsibility} AND
+		</if>
+		<if test="userClass != null and userClass != ''">
+			user_class = #{userClass} AND
+		</if>
+		<if test="userStatus != null and userStatus != ''">
+			user_status = #{userStatus} AND
+		</if>
+		<if test="companyNo != null and companyNo != ''">
+			company_no = #{companyNo} AND
+		</if>
+		<if test="departmentNo != null and departmentNo != ''">
+			department_no = #{departmentNo} AND
+		</if>
+			update_date = now()
+		WHERE
+			user_id = #{userId} AND
+			user_domain = #{userDomain} AND
+			user_delete = '0'
+	</update>
+</mapper>

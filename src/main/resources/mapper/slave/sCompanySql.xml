@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.project.dao.slave.SCompanyDao">
+
+	<select id="sltCompany" resultType="com.example.project.beans.model.CompanyModel">
+		SELECT
+			company_no,
+			company_name,
+			company_address,
+			company_zip,
+			company_code,
+			company_parent_no,
+			insert_date,
+			update_date,
+			company_temp,
+			company_delete
+		FROM 
+			company
+		WHERE
+		<if test="companyNo != null and companyNo != ''">
+			company_no = #{companyNo} AND
+		</if>
+		<if test="companyCode != null and companyCode != ''">
+			company_code = #{companyCode} AND
+		</if>
+			company_delete = '0'
+	</select>
+	
+	<select id="sltCompanyList" resultType="com.example.project.beans.model.CompanyModel">
+		SELECT
+			company_no,
+			company_name,
+			company_address,
+			company_zip,
+			company_code,
+			company_parent_no,
+			insert_date,
+			update_date,
+			company_temp,
+			company_delete
+		FROM 
+			company
+		WHERE
+		<if test="companyParentNo != null and companyParentNo != ''">
+			company_parent_no = #{companyParentNo} AND
+		</if>
+			company_delete = '0'
+	</select>
+	
+</mapper>

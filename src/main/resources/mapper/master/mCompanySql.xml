@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.project.dao.master.MCompanyDao">
+
+	<insert id="istCompany" parameterType="map">
+		INSERT INTO company(
+			company_name,
+			company_address,
+			company_zip,
+			company_code,
+			company_parent_no,
+			admin_id,
+			insert_date,
+			update_date,
+			company_temp,
+			company_delete
+		)
+		values(
+			#{companyName},
+			#{companyAddress},
+			#{companyZip},
+			#{companyCode},
+			#{companyParentNo},
+			#{adminId},
+			now(),
+			now(),
+			'0',
+			'0'
+		)
+	</insert>
+	
+	<update id="udtCompany" parameterType="map">
+		UPDATE
+			company
+		SET
+		<if test="companyName != null and companyName != ''">
+			company_name = #{companyName} AND
+		</if>
+		<if test="companyAddress != null and companyAddress != ''">
+			company_Address = #{companyAddress} AND
+		</if>
+		<if test="companyZip != null and companyZip != ''">
+			company_zip = #{companyZip} AND
+		</if>
+		<if test="companyCode != null and companyCode != ''">
+			companyCode = #{companyCode} AND
+		</if>
+		<if test="companyParentNo != null and companyParentNo != ''">
+			company_parent_no = #{companyParentNo} AND
+		</if>
+			update_date = now()
+		WHERE
+			company_no = #{companyNo} AND
+			user_delete = '0'
+	</update>
+</mapper>
