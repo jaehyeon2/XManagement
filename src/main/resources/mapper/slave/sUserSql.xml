@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.project.dao.slave.SUserDao">
+
+	<select id="sltUser" resultType="com.example.project.beans.model.UserModel">
+		SELECT
+			(AES_DECRYPT(UNHEX(user_name), #{strKey})) AS user_name,
+    		(AES_DECRYPT(UNHEX(user_email), #{strKey})) AS user_email,
+   			(AES_DECRYPT(UNHEX(user_phone), #{strKey})) AS user_phone,
+			user_position,
+			user_responsibility,
+			user_class,
+			user_id,
+			user_domain,
+			company_no,
+			department_no,
+			admin_id,
+			insert_date,
+			update_date
+		FROM
+			users
+		WHERE
+			user_delete='0'
+	</select>
+	
+	<select id="sltUserList" resultType="com.example.project.beans.model.UserModel">
+		SELECT
+			(AES_DECRYPT(UNHEX(user_name), #{strKey})) AS user_name,
+    		(AES_DECRYPT(UNHEX(user_email), #{strKey})) AS user_email,
+   			(AES_DECRYPT(UNHEX(user_phone), #{strKey})) AS user_phone,
+			user_position,
+			user_responsibility,
+			user_class,
+			user_id,
+			user_domain,
+			company_no,
+			department_no,
+			admin_id,
+			insert_date,
+			update_date
+		FROM
+			users
+		WHERE
+			user_delete='0'
+		ORDER BY
+			user_name ASC
+		<if test="limitNum != null and limitNum != ''">
+		LIMIT
+			#{startNum}, #{limitNum}
+		</if>
+	</select>
+	
+	<select id="sltUserCount" resultType="Integer">
+		SELECT
+			count(*)
+		FROM
+			users
+		WHERE
+			user_delete='0'
+	</select>
+
+	<select id="sltLoginUser" resultType="com.example.project.beans.model.UserModel">
+		SELECT
+			(AES_DECRYPT(UNHEX(user_name), #{strKey})) AS user_name,
+    		(AES_DECRYPT(UNHEX(user_email), #{strKey})) AS user_email,
+   			(AES_DECRYPT(UNHEX(user_phone), #{strKey})) AS user_phone,
+			user_pwd,
+			user_auth,
+			user_position,
+			user_responsibility,
+			user_class,
+			user_status,
+			user_pwd_mismatch,
+			user_connect_time,
+			user_id,
+			user_domain,
+			company_no,
+			department_no,
+			admin_id,
+			insert_date,
+			update_date
+		FROM
+			users
+		WHERE
+			user_id = #{userId} AND
+			user_domain = #{userDomain} AND
+			user_delete = '0'
+	</select>
+	
+</mapper>

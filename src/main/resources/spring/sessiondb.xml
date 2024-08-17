@@ -26,7 +26,7 @@
 
 	<!-- Slave-->
 	<bean id="sqlSessionSlaveFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="mysqlSlave00" />
+		<property name="dataSource" ref="mysqlSlave" />
 		<property name="configLocation" value="classpath:slaveMap.xml"/>
 	</bean>
 
