@@ -89,7 +89,7 @@ public class CompanyServiceImpl extends BaseService implements CompanyService{
 			logger.error("CompanyServiceImpl::sltCompany::Error = {}", e.getMessage());
 			return null;
 		}
-		return null;
+		return company;
 	}
 	
 	@Override

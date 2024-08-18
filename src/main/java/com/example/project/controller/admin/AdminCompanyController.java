@@ -73,18 +73,9 @@ public class AdminCompanyController extends BaseController{
 		ViewModel view = new ViewModel();
 		
 		UserModel sessionUser = this.getUser(session);
-		logger.info("companyParam no = {}", companyParam.getCompanyNo());
+		
 		CompanyModel company = companyService.sltCompany(companyParam);
-		if (company == null){
-			logger.error("company is null");
-		}else{
-			logger.info("companyNo = {}", company.getCompanyNo());
-			logger.info("companyName = {}", company.getCompanyName());
-			logger.info("companyCode = {}", company.getCompanyCode());
-			logger.info("companyAddress = {}", company.getCompanyAddress());
-			logger.info("companyZip = {}", company.getCompanyZip());
-			logger.info("insertDate = {}", company.getInsertDate());
-		}
+		
 		view.setCompany(company);
 		
 		model.put("model", view);
