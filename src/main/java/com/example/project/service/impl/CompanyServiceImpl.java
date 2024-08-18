@@ -73,7 +73,22 @@ public class CompanyServiceImpl extends BaseService implements CompanyService{
 
 	@Override
 	public CompanyModel sltCompany(CompanyParam companyParam) throws Exception {
-		// TODO Auto-generated method stub
+		CompanyModel company = null;
+		
+		try{
+			Map<String, Object> map = new HashMap<>();
+			map.put("companyNo", companyParam.getCompanyNo());
+			
+			company = sDbDao.getMapper(SCompanyDao.class).sltCompany(map);
+			if (company == null){
+				logger.error("CompanyServiceImpl::sltCompany::Error = company is not exist");
+				return null;
+			}
+			
+		}catch (Exception e) {
+			logger.error("CompanyServiceImpl::sltCompany::Error = {}", e.getMessage());
+			return null;
+		}
 		return null;
 	}
 	

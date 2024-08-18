@@ -1,6 +1,7 @@
 package com.example.project.beans.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class CompanyModel implements Serializable{
 	
@@ -12,6 +13,7 @@ public class CompanyModel implements Serializable{
 	private String companyZip;
 	private String companyCode;
 	private int companyParentNo;
+	private Date insertDate;
 	
 	public int getCompanyNo() {
 		return companyNo;
@@ -48,5 +50,11 @@ public class CompanyModel implements Serializable{
 	}
 	public void setCompanyParentNo(int companyParentNo) {
 		this.companyParentNo = companyParentNo;
+	}
+	public Date getInsertDate() {
+		return insertDate;
+	}
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
 	}
 }

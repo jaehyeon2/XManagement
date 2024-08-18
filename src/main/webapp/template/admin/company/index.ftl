@@ -16,7 +16,7 @@
 			<td class="company_td">모회사</td>
 		</th>
 		<#list model.companyList?if_exists as company>
-		<tr class="company_tr">
+		<tr class="company_tr" onclick="location.href='/admin/company/detail?companyNo=${company.companyNo?if_exists}'">
 			<td class="company_td">${company.companyNo?if_exists}</td>
 			<td class="company_td">${company.companyName?if_exists}</td>
 			<td class="company_td">${company.companyCode?if_exists}</td>

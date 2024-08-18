@@ -52,7 +52,7 @@ public class AdminCompanyController extends BaseController{
 		
 		model.put("model", view);
 		
-		return "admin/company/addCompany";
+		return "admin/company/companyAdd";
 	}
 	
 	@PostMapping(value={"/addCompany"})
@@ -65,6 +65,30 @@ public class AdminCompanyController extends BaseController{
 		companyService.istCompany(companyParam);
 		
 		return "redirect:/admin/company";
+	}
+	
+	@GetMapping(value={"detail"})
+	public String companyDetail(@Valid CompanyParam companyParam, HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) throws Exception{
+		
+		ViewModel view = new ViewModel();
+		
+		UserModel sessionUser = this.getUser(session);
+		logger.info("companyParam no = {}", companyParam.getCompanyNo());
+		CompanyModel company = companyService.sltCompany(companyParam);
+		if (company == null){
+			logger.error("company is null");
+		}else{
+			logger.info("companyNo = {}", company.getCompanyNo());
+			logger.info("companyName = {}", company.getCompanyName());
+			logger.info("companyCode = {}", company.getCompanyCode());
+			logger.info("companyAddress = {}", company.getCompanyAddress());
+			logger.info("companyZip = {}", company.getCompanyZip());
+			logger.info("insertDate = {}", company.getInsertDate());
+		}
+		view.setCompany(company);
+		
+		model.put("model", view);
+		return "/admin/company/companyDetail";
 	}
 
 }
