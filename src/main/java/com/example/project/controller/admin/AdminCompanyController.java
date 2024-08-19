@@ -17,8 +17,10 @@ import com.example.project.beans.model.CompanyModel;
 import com.example.project.beans.model.UserModel;
 import com.example.project.beans.model.ViewModel;
 import com.example.project.beans.param.CompanyParam;
+import com.example.project.beans.param.UserParam;
 import com.example.project.controller.BaseController;
 import com.example.project.service.CompanyService;
+import com.example.project.service.UserService;
 
 import jakarta.validation.Valid;
 
@@ -28,6 +30,9 @@ public class AdminCompanyController extends BaseController{
 	
 	@Autowired
 	private CompanyService companyService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping(value={"/", "", "/index"})
 	public String index(@Valid CompanyParam companyParam, HttpServletRequest request, HttpServletResponse response, ModelMap model, ViewModel view) throws Exception {
@@ -67,7 +72,7 @@ public class AdminCompanyController extends BaseController{
 		return "redirect:/admin/company";
 	}
 	
-	@GetMapping(value={"detail"})
+	@GetMapping(value={"/detail"})
 	public String companyDetail(@Valid CompanyParam companyParam, HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) throws Exception{
 		
 		ViewModel view = new ViewModel();
@@ -80,6 +85,24 @@ public class AdminCompanyController extends BaseController{
 		
 		model.put("model", view);
 		return "/admin/company/companyDetail";
+	}
+	
+	@GetMapping(value={"/companyLowerList"})
+	public String companyLowerList(@Valid CompanyParam companyParam, HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) throws Exception{
+		ViewModel view = new ViewModel();
+		
+		UserParam userParam = new UserParam();
+		userParam.setCompanyParentNo(companyParam.getCompanyParentNo());
+		
+		List<CompanyModel> companyList = companyService.sltLowerCompanyList(companyParam);
+		List<UserModel> userList = userService.sltLowerUserList(userParam);
+		
+		view.setCompanyList(companyList);
+		view.setUserList(userList);
+		
+		model.put("model", view);
+		
+		return "";
 	}
 
 }

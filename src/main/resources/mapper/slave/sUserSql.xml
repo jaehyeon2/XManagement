@@ -15,7 +15,7 @@
 			user_id,
 			user_domain,
 			company_no,
-			department_no,
+			company_parent_no,
 			admin_id,
 			insert_date,
 			update_date
@@ -36,13 +36,16 @@
 			user_id,
 			user_domain,
 			company_no,
-			department_no,
+			company_parent_no,
 			admin_id,
 			insert_date,
 			update_date
 		FROM
 			users
 		WHERE
+		<if test="companyParentNo != null and companyParentNo != ''">
+			company_parent_no = #{companyParentNo} AND
+		</if>
 			user_delete='0'
 		ORDER BY
 			user_name ASC

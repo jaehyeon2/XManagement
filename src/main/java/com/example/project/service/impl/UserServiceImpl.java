@@ -37,7 +37,7 @@ public class UserServiceImpl extends BaseService implements UserService{
 			map.put("userId", userParam.getUserId());
 			map.put("userDomain", userParam.getUserDomain());
 			map.put("companyNo", userParam.getCompanyNo());
-			map.put("departmentNo", userParam.getDepartmentNo());
+			map.put("companyParentNo", userParam.getCompanyParentNo());
 			map.put("adminId", userParam.getAdminId());
 			
 			intResult = mDbDao.getMapper(MUserDao.class).istUser(map);
@@ -171,4 +171,22 @@ public class UserServiceImpl extends BaseService implements UserService{
 		
 		return userCount;
 	}
+
+	@Override
+	public List<UserModel> sltLowerUserList(UserParam userParam) throws Exception {
+		List<UserModel> userList = null;
+		
+		try{
+			Map<String, Object> map = new HashMap<>();
+			map.put("companyParentNo", userParam.getCompanyParentNo());
+			
+			userList = sDbDao.getMapper(SUserDao.class).sltUserList(map);
+			
+		}catch (Exception e) {
+			logger.error("UserServiceImpl::sltLowerUserList::Error = {}", e.getMessage());
+			return null;
+		}
+		return userList;
+	}
+	
 }

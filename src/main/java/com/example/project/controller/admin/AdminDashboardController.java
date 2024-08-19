@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.project.controller.BaseController;
 import com.example.project.service.CompanyService;
-import com.example.project.service.DepartmentService;
 import com.example.project.service.UserService;
 
 @Controller
@@ -24,9 +23,6 @@ public class AdminDashboardController extends BaseController{
 	
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private DepartmentService departmentService;
 	
 	@GetMapping(value={"/", "", "/index"})
 	public String adminDashboard(HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) throws Exception{

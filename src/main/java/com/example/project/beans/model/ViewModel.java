@@ -13,9 +13,6 @@ public class ViewModel {
 	private CompanyModel company;
 	private List<CompanyModel> companyList;
 	
-	private DepartmentModel department;
-	private List<DepartmentModel> departmentList;
-	
 	private int limitNum;
 	private int pageNum;
 	
@@ -54,18 +51,6 @@ public class ViewModel {
 	}
 	public void setCompanyList(List<CompanyModel> companyList) {
 		this.companyList = companyList;
-	}
-	public DepartmentModel getDepartment() {
-		return department;
-	}
-	public void setDepartment(DepartmentModel department) {
-		this.department = department;
-	}
-	public List<DepartmentModel> getDepartmentList() {
-		return departmentList;
-	}
-	public void setDepartmentList(List<DepartmentModel> departmentList) {
-		this.departmentList = departmentList;
 	}
 	public int getLimitNum() {
 		return limitNum;

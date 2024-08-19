@@ -18,7 +18,7 @@ public class UserParam {
 	private String userId;
 	private String userDomain;
 	private int companyNo;
-	private int departmentNo;
+	private int companyParentNo;
 	private String adminId;
 	
 	private String userKeyword;
@@ -109,11 +109,11 @@ public class UserParam {
 	public void setCompanyNo(int companyNo) {
 		this.companyNo = companyNo;
 	}
-	public int getDepartmentNo() {
-		return departmentNo;
+	public int getCompanyParentNo() {
+		return companyParentNo;
 	}
-	public void setDepartmentNo(int departmentNo) {
-		this.departmentNo = departmentNo;
+	public void setCompanyParentNo(int companyParentNo) {
+		this.companyParentNo = companyParentNo;
 	}
 	public String getAdminId() {
 		return adminId;

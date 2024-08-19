@@ -14,7 +14,7 @@ CREATE TABLE if NOT EXISTS x_management.users(
 	user_id VARCHAR(100) NOT NULL,
 	user_domain VARCHAR(100) NOT NULL,
 	company_no INTEGER NOT NULL,
-	department_no INTEGER NOT NULL,
+	compant_parent_no INTEGER NOT NULL DEFAULT 0,
 	admin_id VARCHAR(100) NOT NULL,
 	insert_date TIMESTAMP NOT NULL,
 	update_date TIMESTAMP NOT NULL,
@@ -26,28 +26,10 @@ CREATE TABLE if NOT EXISTS x_management.users(
 CREATE TABLE if NOT EXISTS x_management.company(
 	company_no INTEGER NOT NULL AUTO_INCREMENT,
 	company_name VARCHAR(100) NOT NULL,
-	company_address VARCHAR(1000) NOT NULL,
-	company_zip VARCHAR(10) NOT NULL,
 	company_code VARCHAR(100) NOT NULL,
-	company_parent_no INTEGER NOT NULL,
-	admin_idcVARCHAR(100) NOT NULL,
 	insert_date TIMESTAMP NOT NULL,
 	update_date TIMESTAMP NOT NULL,
 	company_temp CHAR(1) NULL,
 	company_delete CHAR(1) NOT NULL,
 	PRIMARY KEY (company_no)
-)ENGINE=InnoDB default CHARSET=utf8;
-
-CREATE TABLE if NOT EXISTS x_management.department(
-	department_no INTEGER NOT NULL AUTO_INCREMENT,
-	department_name VARCHAR(100) NOT NULL,
-	department_code VARCHAR(100) NOT NULL,
-	department_parent_no INTEGER NOT NULL,
-	company_no INTEGER NOT NULL,
-	admin_id VARCHAR(100) NOT NULL,
-	insert_date TIMESTAMP NOT NULL,
-	update_date TIMESTAMP NOT NULL,
-	department_temp CHAR(1) NULL,
-	department_delete CHAR(1) NOT NULL,
-	PRIMARY KEY (department_no)
 )ENGINE=InnoDB default CHARSET=utf8;

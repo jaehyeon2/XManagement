@@ -15,5 +15,5 @@ public interface CompanyService {
 //	Slave
 	public CompanyModel sltCompany(CompanyParam companyParam) throws Exception;
 	public List<CompanyModel> sltCompanyList(CompanyParam companyParam) throws Exception;
-	
+	public List<CompanyModel> sltLowerCompanyList(CompanyParam companyParam) throws Exception;
 }

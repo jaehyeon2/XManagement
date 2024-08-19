@@ -112,4 +112,27 @@ public class CompanyServiceImpl extends BaseService implements CompanyService{
 		return companyList;
 	}
 
+	@Override
+	public List<CompanyModel> sltLowerCompanyList(CompanyParam companyParam) throws Exception {
+		
+		List<CompanyModel> companyList = null;
+		
+		try{
+			Map<String, Object> map = new HashMap<>();
+			map.put("companyParentNo", companyParam.getCompanyParentNo());
+			
+			companyList = sDbDao.getMapper(SCompanyDao.class).sltCompanyList(map);
+			
+			if (companyList == null){
+				logger.error("CompanyServiceImpl::sltLowerCompanyList::Error = company is not exists.");
+				return null;
+			}
+		}catch (Exception e) {
+			logger.error("CompanyServiceImpl::sltLowerCompanyList::Error = {}", e.getMessage());
+			return null;
+		}
+		
+		return companyList;
+	}
+
 }

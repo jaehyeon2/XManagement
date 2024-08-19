@@ -18,7 +18,7 @@
 			user_id,
 			user_domain,
 			company_no,
-			department_no,
+			company_parent_no,
 			admin_id,
 			insert_date,
 			update_date,
@@ -38,7 +38,7 @@
 			#{userId},
 			#{userDomain},
 			#{companyNo},
-			#{deparymentNo},
+			#{companyParentNo},
 			#{adminId},
 			now(),
 			now(),
@@ -75,8 +75,8 @@
 		<if test="companyNo != null and companyNo != ''">
 			company_no = #{companyNo} AND
 		</if>
-		<if test="departmentNo != null and departmentNo != ''">
-			department_no = #{departmentNo} AND
+		<if test="companyParentNo != null and companyParentNo != ''">
+			company_parent_no = #{companyParentNo} AND
 		</if>
 			update_date = now()
 		WHERE

@@ -21,7 +21,7 @@ public class UserModel implements Serializable{
 	private String userId;
 	private String userDomain;
 	private int companyNo;
-	private int departmentNo;
+	private int companyParentNo;
 	private Date userInsertTime;
 	private String adminId;
 	
@@ -109,11 +109,11 @@ public class UserModel implements Serializable{
 	public void setCompanyNo(int companyNo) {
 		this.companyNo = companyNo;
 	}
-	public int getDepartmentNo() {
-		return departmentNo;
+	public int getCompanyParentNo() {
+		return companyParentNo;
 	}
-	public void setDepartmentNo(int departmentNo) {
-		this.departmentNo = departmentNo;
+	public void setCompanyParentNo(int companyParentNo) {
+		this.companyParentNo = companyParentNo;
 	}
 	public Date getUserInsertTime() {
 		return userInsertTime;
