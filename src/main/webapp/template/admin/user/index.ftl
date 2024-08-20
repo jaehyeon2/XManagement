@@ -4,7 +4,7 @@
 
 <div class="main_container">
 	user
-	
+	<a href="/admin/user/addUser">사용자 등록</a>
 	<#if model??>
 	<div class="user_count">userCount = ${model.userCount?if_exists}</div>
 	<#if model.userList??>
