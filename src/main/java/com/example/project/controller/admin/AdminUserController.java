@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.project.beans.model.ViewModel;
@@ -39,5 +40,16 @@ public class AdminUserController extends BaseController{
 		map.put("model", view);
 		
 		return "admin/user/index";
+	}
+	
+	@GetMapping(value={"/addUser"})
+	public String addUserGET(HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) throws Exception{
+		return "admin/user/addUser";
+	}
+	
+	@PostMapping(value={"/addUser"})
+	public String addUserPOST(@Valid UserParam userParam, HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) throws Exception{
+		userService.istUser(userParam);
+		return "redirect:/admin/user/index";
 	}
 }
