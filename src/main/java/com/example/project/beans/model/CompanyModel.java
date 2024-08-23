@@ -9,8 +9,6 @@ public class CompanyModel implements Serializable{
 	
 	private int companyNo;
 	private String companyName;
-	private String companyAddress;
-	private String companyZip;
 	private String companyCode;
 	private int companyParentNo;
 	private Date insertDate;
@@ -26,18 +24,6 @@ public class CompanyModel implements Serializable{
 	}
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
-	}
-	public String getCompanyAddress() {
-		return companyAddress;
-	}
-	public void setCompanyAddress(String companyAddress) {
-		this.companyAddress = companyAddress;
-	}
-	public String getCompanyZip() {
-		return companyZip;
-	}
-	public void setCompanyZip(String companyZip) {
-		this.companyZip = companyZip;
 	}
 	public String getCompanyCode() {
 		return companyCode;

@@ -11,8 +11,6 @@
 			<td class="company_td">No</td>
 			<td class="company_td">회사명</td>
 			<td class="company_td">회사코드</td>
-			<td class="company_td">회사주소</td>
-			<td class="company_td">우편번호</td>
 			<td class="company_td">모회사</td>
 		</th>
 		<#list model.companyList?if_exists as company>
@@ -20,8 +18,6 @@
 			<td class="company_td">${company.companyNo?if_exists}</td>
 			<td class="company_td">${company.companyName?if_exists}</td>
 			<td class="company_td">${company.companyCode?if_exists}</td>
-			<td class="company_td">${company.companyAddress?if_exists}</td>
-			<td class="company_td">${company.companyZip?if_exists}</td>
 			<td class="company_td">${company.companyParentNo?if_exists}</td>
 		</tr>
 		</#list>

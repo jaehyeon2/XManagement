@@ -8,8 +8,6 @@
 		SELECT
 			company_no,
 			company_name,
-			company_address,
-			company_zip,
 			company_code,
 			company_parent_no,
 			insert_date,
@@ -32,8 +30,6 @@
 		SELECT
 			company_no,
 			company_name,
-			company_address,
-			company_zip,
 			company_code,
 			company_parent_no,
 			insert_date,

@@ -22,8 +22,6 @@ public class CompanyServiceImpl extends BaseService implements CompanyService{
 		try{
 			Map<String, Object> map = new HashMap<>();
 			map.put("companyName", companyParam.getCompanyName());
-			map.put("companyAddress", companyParam.getCompanyAddress());
-			map.put("companyZip", companyParam.getCompanyZip());
 			map.put("companyCode", companyParam.getCompanyCode());
 			map.put("companyParentNo", companyParam.getCompanyNo());
 			map.put("adminId", companyParam.getAdminId());
@@ -47,8 +45,6 @@ public class CompanyServiceImpl extends BaseService implements CompanyService{
 		try{
 			Map<String, Object> map = new HashMap<>();
 			map.put("companyName", companyParam.getCompanyName());
-			map.put("companyAddress", companyParam.getCompanyAddress());
-			map.put("companyZip", companyParam.getCompanyZip());
 			map.put("companyCode", companyParam.getCompanyCode());
 			map.put("companyParentNo", companyParam.getCompanyNo());
 			
