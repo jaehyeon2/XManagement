@@ -7,6 +7,7 @@ public class UserParam {
 	private int userNo;
 	private String userName;
 	private String userEmail;
+	private String userPhone;
 	private String userPwd;
 	private String userAuth;
 	private String userPosition;
@@ -42,6 +43,12 @@ public class UserParam {
 	}
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+	public String getUserPhone() {
+		return userPhone;
+	}
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
 	}
 	public String getUserPwd() {
 		return userPwd;

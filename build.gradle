@@ -60,6 +60,8 @@ dependencies {
 	
 	implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
 	
+	implementation 'org.apache.commons:commons-lang3:3.16.0'
+	
 	implementation "org.mybatis:mybatis:3.5.11"
 	implementation 'org.mybatis:mybatis-spring:2.0.7'
 	implementation 'mysql:mysql-connector-java:8.0.33'

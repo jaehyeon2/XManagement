@@ -7,7 +7,7 @@
 	<form action="/admin/user/addUser" method="post">
 		<label>사용자 이름</label><input class="add-user-input" name="userName"></input>
 		<label>사용자 이메일</label><input class="add-user-input" name="userEmail"></input>
-		<label>사용자 이름</label><input class="add-user-input" name="userPhone"></input>
+		<label>사용자 연락처</label><input class="add-user-input" name="userPhone"></input>
 		<label>사용자 권한</label>
 		<select name="userAuth">
 			<option value='9'>일반</option>

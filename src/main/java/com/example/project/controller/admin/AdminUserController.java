@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.project.beans.model.UserModel;
 import com.example.project.beans.model.ViewModel;
 import com.example.project.beans.param.UserParam;
 import com.example.project.controller.BaseController;
@@ -49,6 +50,11 @@ public class AdminUserController extends BaseController{
 	
 	@PostMapping(value={"/addUser"})
 	public String addUserPOST(@Valid UserParam userParam, HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) throws Exception{
+		
+		UserModel sessionUser = this.getUser(request.getSession());
+		
+		userParam.setAdminId(sessionUser.getUserId());
+		
 		userService.istUser(userParam);
 		return "redirect:/admin/user/index";
 	}

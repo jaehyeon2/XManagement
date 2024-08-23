@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.project.beans.enums.CompanyEnum;
 import com.example.project.beans.model.UserModel;
 import com.example.project.beans.param.UserParam;
 import com.example.project.dao.master.MUserDao;
@@ -20,16 +22,23 @@ public class UserServiceImpl extends BaseService implements UserService{
 	@Autowired
 	private String strKey;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@Override
 	public boolean istUser(UserParam userParam) throws Exception {
 		
-		int intResult = 0;		
+		int intResult = 0;
+		
+		this.divideEmail(userParam);
 		
 		try{
 			Map<String, Object> map = new HashMap<>();
 			
 			map.put("userName", userParam.getUserName());
 			map.put("userEmail", userParam.getUserEmail());
+			map.put("userPhone", userParam.getUserPhone());
+			map.put("userPwd", passwordEncoder.encode(this.generateRandomString()));
 			map.put("userAuth", userParam.getUserAuth());
 			map.put("userPosition", userParam.getUserPosition());
 			map.put("userResponsibility", userParam.getUserResponsibility());
@@ -37,8 +46,9 @@ public class UserServiceImpl extends BaseService implements UserService{
 			map.put("userId", userParam.getUserId());
 			map.put("userDomain", userParam.getUserDomain());
 			map.put("companyNo", userParam.getCompanyNo());
-			map.put("companyParentNo", userParam.getCompanyParentNo());
+			map.put("companyParentNo", CompanyEnum.WAITING.getCompanyNo());
 			map.put("adminId", userParam.getAdminId());
+			map.put("strKey", strKey);
 			
 			intResult = mDbDao.getMapper(MUserDao.class).istUser(map);
 			
