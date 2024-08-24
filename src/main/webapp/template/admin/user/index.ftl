@@ -22,7 +22,7 @@
 			<td class="user_td">${user.userName?if_exists}</td>
 			<td class="user_td">${user.userEmail?if_exists}</td>
 			<td class="user_td">${user.userPhone?if_exists}</td>
-			<td class="user_td">${user.userParentNo?if_exists}</td>
+			<td class="user_td">${user.companyParentNo?if_exists}</td>
 		</tr>
 		</#list>
 	</table>
