@@ -6,6 +6,7 @@
 
 	<select id="sltUser" resultType="com.example.project.beans.model.UserModel">
 		SELECT
+			user_no,
 			(AES_DECRYPT(UNHEX(user_name), #{strKey})) AS user_name,
     		(AES_DECRYPT(UNHEX(user_email), #{strKey})) AS user_email,
    			(AES_DECRYPT(UNHEX(user_phone), #{strKey})) AS user_phone,
@@ -16,6 +17,14 @@
 			user_domain,
 			company_no,
 			company_parent_no,
+			(SELECT
+				company_name
+			FROM
+				company
+			WHERE
+				users.company_parent_no = company.company_no AND
+				company_delete='0'
+			) as company_parent_name,
 			admin_id,
 			insert_date,
 			update_date
@@ -27,6 +36,7 @@
 	
 	<select id="sltUserList" resultType="com.example.project.beans.model.UserModel">
 		SELECT
+			user_no,
 			(AES_DECRYPT(UNHEX(user_name), #{strKey})) AS user_name,
     		(AES_DECRYPT(UNHEX(user_email), #{strKey})) AS user_email,
    			(AES_DECRYPT(UNHEX(user_phone), #{strKey})) AS user_phone,
@@ -37,6 +47,14 @@
 			user_domain,
 			company_no,
 			company_parent_no,
+			(SELECT
+				company_name
+			FROM
+				company
+			WHERE
+				users.company_parent_no = company.company_no AND
+				company_delete='0'
+			) as company_parent_name,
 			admin_id,
 			insert_date,
 			update_date
@@ -81,6 +99,14 @@
 			user_domain,
 			company_no,
 			company_parent_no,
+			(SELECT
+				company_name
+			FROM
+				company
+			WHERE
+				users.company_parent_no = company.company_no AND
+				company_delete='0'
+			) as company_parent_name,
 			admin_id,
 			insert_date,
 			update_date

@@ -23,6 +23,7 @@ public class UserModel implements Serializable{
 	private String userDomain;
 	private int companyNo;
 	private int companyParentNo;
+	private String companyParentName;
 	private Date userInsertTime;
 	private String adminId;
 	
@@ -121,6 +122,12 @@ public class UserModel implements Serializable{
 	}
 	public void setCompanyParentNo(int companyParentNo) {
 		this.companyParentNo = companyParentNo;
+	}
+	public String getCompanyParentName() {
+		return companyParentName;
+	}
+	public void setCompanyParentName(String companyParentName) {
+		this.companyParentName = companyParentName;
 	}
 	public Date getUserInsertTime() {
 		return userInsertTime;

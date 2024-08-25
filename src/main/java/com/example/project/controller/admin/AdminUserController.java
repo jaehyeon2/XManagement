@@ -1,5 +1,7 @@
 package com.example.project.controller.admin;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,12 +33,18 @@ public class AdminUserController extends BaseController{
 		
 		ViewModel view = new ViewModel();
 		
+		List<UserModel> userList = userService.sltUserList(userParam);
+		int userCount = userService.sltUserCount(userParam);
 		view.setSessionUser(this.getUser(session));
 		
-		view.setUserList(userService.sltUserList(userParam));
-		view.setUserCount(userService.sltUserCount(userParam));
+		view.setUserList(userList);
+		view.setUserCount(userCount);
 		view.setPageNum(userParam.getPageNum());
 		view.setLimitNum(userParam.getLimitNum());
+		
+		for (UserModel user:userList){
+			logger.info("userParentName = {}", user.getCompanyParentName());
+		}
 		
 		map.put("model", view);
 		
