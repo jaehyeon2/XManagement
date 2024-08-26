@@ -66,4 +66,19 @@ public class AdminUserController extends BaseController{
 		userService.istUser(userParam);
 		return "redirect:/admin/user/index";
 	}
+	
+	@GetMapping(value={"/detail"})
+	public String detail(@Valid UserParam userParam, HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) throws Exception{
+		
+		ViewModel view = new ViewModel();
+		logger.info("userParam.getUserId = {}", userParam.getUserId());
+		logger.info("userParam.getUserDomain = {}", userParam.getUserDomain());
+		UserModel user = userService.sltUser(userParam);
+		
+		view.setUser(user);
+		
+		model.put("model", view);
+		
+		return "admin/user/detail";
+	}
 }

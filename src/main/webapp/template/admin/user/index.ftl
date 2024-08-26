@@ -17,7 +17,7 @@
 			<td class="user_td">소속</td>
 		</th>
 		<#list model.userList as user>
-		<tr class="company_tr" onclick="location.href='/admin/user/detail?userNo=${user.userNo?if_exists}'">
+		<tr class="company_tr" onclick="location.href='/admin/user/detail?userId=${user.userId?if_exists}&userDomain=${user.userDomain?if_exists}'">
 			<td class="user_td">${user.userNo?if_exists}</td>
 			<td class="user_td">${user.userName?if_exists}</td>
 			<td class="user_td">${user.userEmail?if_exists}</td>

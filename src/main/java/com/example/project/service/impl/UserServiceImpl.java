@@ -125,6 +125,7 @@ public class UserServiceImpl extends BaseService implements UserService{
 			Map<String, Object> map = new HashMap<>();
 			map.put("userId", userParam.getUserId());
 			map.put("userDomain", userParam.getUserDomain());
+			map.put("strKey", strKey);
 			
 			user = sDbDao.getMapper(SUserDao.class).sltUser(map);
 			if (user == null){
