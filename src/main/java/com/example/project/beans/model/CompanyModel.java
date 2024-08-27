@@ -11,6 +11,7 @@ public class CompanyModel implements Serializable{
 	private String companyName;
 	private String companyCode;
 	private int companyParentNo;
+	private String companyParentName;
 	private Date insertDate;
 	
 	public int getCompanyNo() {
@@ -36,6 +37,12 @@ public class CompanyModel implements Serializable{
 	}
 	public void setCompanyParentNo(int companyParentNo) {
 		this.companyParentNo = companyParentNo;
+	}
+	public String getCompanyParentName() {
+		return companyParentName;
+	}
+	public void setCompanyParentName(String companyParentName) {
+		this.companyParentName = companyParentName;
 	}
 	public Date getInsertDate() {
 		return insertDate;

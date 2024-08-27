@@ -10,12 +10,20 @@
 			company_name,
 			company_code,
 			company_parent_no,
+			(SELECT
+				company_name
+			FROM
+				company as parent
+			WHERE
+				company.company_parent_no = parent.company_no AND
+				company_delete='0'
+			) as company_parent_name,
 			insert_date,
 			update_date,
 			company_temp,
 			company_delete
 		FROM 
-			company
+			company as company
 		WHERE
 		<if test="companyNo != null and companyNo != ''">
 			company_no = #{companyNo} AND
@@ -32,12 +40,20 @@
 			company_name,
 			company_code,
 			company_parent_no,
+			(SELECT
+				company_name
+			FROM
+				company as parent
+			WHERE
+				company.company_parent_no = parent.company_no AND
+				company_delete='0'
+			) as company_parent_name,
 			insert_date,
 			update_date,
 			company_temp,
 			company_delete
 		FROM 
-			company
+			company as company
 		WHERE
 		<if test="companyParentNo != null and companyParentNo != ''">
 			company_parent_no = #{companyParentNo} AND

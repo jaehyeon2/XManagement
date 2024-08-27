@@ -18,7 +18,7 @@
 			<td class="company_td">${company.companyNo?if_exists}</td>
 			<td class="company_td">${company.companyName?if_exists}</td>
 			<td class="company_td">${company.companyCode?if_exists}</td>
-			<td class="company_td">${company.companyParentNo?if_exists}</td>
+			<td class="company_td">${company.companyParentName?if_exists}</td>
 		</tr>
 		</#list>
 		
