@@ -1,0 +1,9 @@
+/* admin navi layout start */
+.user_navi_list > .menu_area {display:flex;padding:0;margin:0;list-style-type:none;}
+.user_navi_list > .menu_area > li {height:40px;font-weight:600;padding:10px 6px 10px 10px;margin:0 8px 0 0;box-sizing:border-box;font-size:14px;line-height:20px;color:#6E6E6E;display:flex;align-items:center;}
+.user_navi_list > .menu_area > li:hover {background:rgba(0, 0, 0, 0.03);}
+.user_navi_list > .menu_area > li.on > a {color:#2863ed;}
+.user_navi_list > .menu_area > li > a {display:flex;align-items:center;text-decoration:none;}
+.user_navi_list > .menu_area > li > a > span {display:inline-block;width:24px;height:24px;margin-right:10px;background-color:#6e6e6e;background-repeat:no-repeat;vertical-align:middle;mask-size:contain;}
+.user_navi_list > .menu_area > li.on > a > span {background-color:#2863ed;}
+/* admin navi layout end */

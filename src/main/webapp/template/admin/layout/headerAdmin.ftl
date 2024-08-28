@@ -9,6 +9,6 @@
 	<meta name="author" content="">
 	<meta name="keywords" content="engineer, job, programer, java, design">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/admin/style.css">
 
 </head>
