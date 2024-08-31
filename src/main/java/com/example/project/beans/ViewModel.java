@@ -1,6 +1,9 @@
-package com.example.project.beans.model;
+package com.example.project.beans;
 
 import java.util.List;
+
+import com.example.project.beans.model.CompanyModel;
+import com.example.project.beans.model.UserModel;
 
 public class ViewModel {
 	

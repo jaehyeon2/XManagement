@@ -9,8 +9,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.project.beans.ViewModel;
 import com.example.project.beans.model.UserModel;
-import com.example.project.beans.model.ViewModel;
 import com.example.project.controller.BaseController;
 
 @Controller

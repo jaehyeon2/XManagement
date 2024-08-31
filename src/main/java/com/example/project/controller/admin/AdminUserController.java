@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.project.beans.ViewModel;
 import com.example.project.beans.model.UserModel;
-import com.example.project.beans.model.ViewModel;
 import com.example.project.beans.param.UserParam;
 import com.example.project.controller.BaseController;
 import com.example.project.service.UserService;
