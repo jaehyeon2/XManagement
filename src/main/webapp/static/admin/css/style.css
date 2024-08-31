@@ -7,3 +7,22 @@
 .admin_navi_list > .menu_area > li > a > span {display:inline-block;width:24px;height:24px;margin-right:10px;background-color:#6e6e6e;background-repeat:no-repeat;vertical-align:middle;mask-size:contain;}
 .admin_navi_list > .menu_area > li.on > a > span {background-color:#2863ed;}
 /* admin navi layout end */
+
+/* admin list start */
+.admin_list1{border-bottom:1px solid #F0F1F2;}
+.admin_list1:hover{background:rgba(0, 0, 0, 0.03);}
+.admin_list1.th{border-bottom:none;background:rgba(0, 0, 0, 0.03);}
+.admin_list1 > ul{}
+.admin_list1 > ul:after{display:block;content:"";clear:both;}
+.admin_list1 > ul > li{overflow:hidden;float:left;height:32px;padding:6px 0;margin-left:16px; box-sizing:border-box;font-weight:400;font-size:14px;line-height:20px;color:#6E6E6E;text-align:center;white-space:nowrap;text-overflow:ellipsis;}
+.admin_list1 > ul > li:nth-child(1){width:100px;margin-left:0;}
+.admin_list1 > ul > li:nth-child(2){width:68px}
+.admin_list1 > ul > li:nth-child(3){width:142px}
+.admin_list1 > ul > li:nth-child(4){width:190px}
+.admin_list1 > ul > li:nth-child(5){width:176px}
+/* admin list end */
+
+.admin_user_num{position:relative;}
+.admin_user_num > p{font-weight:600;font-size:18px;line-height:32px;}
+.admin_user_num > p > .num{margin:0 4px 0 8px;font-weight:600;font-size:18px;line-height:32px;color:#2863ED;}
+.admin_user_num > p > .num.none{color:#D4D4D4}
