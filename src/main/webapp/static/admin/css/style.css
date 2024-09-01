@@ -9,6 +9,7 @@
 /* admin navi layout end */
 
 /* admin list start */
+/* admin_list1 - admin user list */
 .admin_list1{border-bottom:1px solid #F0F1F2;}
 .admin_list1:hover{background:rgba(0, 0, 0, 0.03);}
 .admin_list1.th{border-bottom:none;background:rgba(0, 0, 0, 0.03);}
@@ -20,6 +21,18 @@
 .admin_list1 > ul > li:nth-child(3){width:142px}
 .admin_list1 > ul > li:nth-child(4){width:190px}
 .admin_list1 > ul > li:nth-child(5){width:176px}
+
+/* admin_list2 - admin company list */
+.admin_list2{border-bottom:1px solid #F0F1F2;}
+.admin_list2:hover{background:rgba(0, 0, 0, 0.03);}
+.admin_list2.th{border-bottom:none;background:rgba(0, 0, 0, 0.03);}
+.admin_list2 > ul{}
+.admin_list2 > ul:after{display:block;content:"";clear:both;}
+.admin_list2 > ul > li{overflow:hidden;float:left;height:32px;padding:6px 0;margin-left:16px; box-sizing:border-box;font-weight:400;font-size:14px;line-height:20px;color:#6E6E6E;text-align:center;white-space:nowrap;text-overflow:ellipsis;}
+.admin_list2 > ul > li:nth-child(1){width:150px;margin-left:0;}
+.admin_list2 > ul > li:nth-child(2){width:150px}
+.admin_list2 > ul > li:nth-child(3){width:200px}
+.admin_list2 > ul > li:nth-child(4){width:190px}
 /* admin list end */
 
 .admin_user_num{position:relative;}

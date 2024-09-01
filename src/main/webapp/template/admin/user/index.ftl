@@ -44,7 +44,7 @@
 		<span class="txt1">해당 정보가 존재하지 않습니다.</span>
 	<p>
 	</#if>
-	</#if>	
+	</#if>
 </div>
 
 </@layout.myLayout>
